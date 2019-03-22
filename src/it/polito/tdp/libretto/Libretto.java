@@ -42,6 +42,16 @@ public class Libretto {
 			}
 		}
 		return result;
+		
+	}
+	
+	public Voto cercaEsame(String nomeEsame) {
+		for(Voto v: listaVoti) {
+			if(v.getNomeCorso().equals(nomeEsame)) {  //meglio equals non mi serve un ordinamento naturale
+				return v;
+			}
+		}
+		return null;
 	}
 	
 }
