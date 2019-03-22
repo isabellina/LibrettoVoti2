@@ -4,25 +4,25 @@ import java.time.*;
 
 public class Voto {
 
-	private int voto;
+	private int punti;
 	private String nomeCorso;
 	private LocalDate data;  // oggetti date e calender per gestire le date 
 	
 	
-	public Voto(int voto, String nomeCorso, LocalDate data) {
+	public Voto(int punti, String nomeCorso, LocalDate data) {
 		
-		this.voto = voto;
+		this.punti = punti;
 		this.nomeCorso = nomeCorso;
 		this.data = data;
 	}
 	
-	public int getVoto() {
-		return voto;
+	public int getPunti() {
+		return punti;
 	}
 	
 	
-	public void setVoto(int voto) {
-		this.voto = voto;
+	public void setPunti(int voto) {
+		this.punti = voto;
 	}
 	
 	
@@ -47,7 +47,7 @@ public class Voto {
 
 	@Override
 	public String toString() {
-		return String.format("Voto [voto=%s, nomeCorso=%s, data=%s]", voto, nomeCorso, data);
+		return String.format("Voto [punti=%s, nomeCorso=%s, data=%s]", punti, nomeCorso, data);
 	}
 	
 	

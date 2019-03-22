@@ -31,4 +31,17 @@ public class Libretto {
 		listaVoti.add(voto);
 	}
 	
+	
+	// ci sono diversi metodi per stampare i voti uguali a 25 ma conviene farlo con una lista perchè poi dovremo creare un'interfaccia grafica
+	
+	public List<Voto> cercaVoti(int punti){
+		List<Voto> result = new ArrayList<Voto>();
+		for(Voto v : listaVoti) {
+			if(v.getPunti()==punti) {
+				result.add(v);        //non sono nuovi oggetti sto riusando oggetti che già ho, copio solo il riferimento all'indirizzo di memoria
+			}
+		}
+		return result;
+	}
+	
 }
