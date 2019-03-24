@@ -15,7 +15,7 @@ public class TestLibretto {
 		libr.add(new Voto(21, "Analisi II", LocalDate.of(2018, 1, 25)));
 		libr.add(new Voto(25, "Fisica I", LocalDate.of(2017, 6, 10)));
 		libr.add(new Voto(28, "Fisica II", LocalDate.of(2018, 9, 3)));
-		libr.add(new Voto(18, "Geometria I", LocalDate.of(2017, 9, 1)));
+		libr.add(new Voto(18, "Geometria", LocalDate.of(2017, 9, 1)));
 		libr.add(new Voto(20, "Economia", LocalDate.of(2018, 1, 28)));
 		libr.add(new Voto(25, "Ricerca Operativa", LocalDate.of(2018, 6, 5)));
 		libr.add(new Voto(24, "Complementi di Economia", LocalDate.of(2018, 2, 15)));
@@ -31,6 +31,15 @@ public class TestLibretto {
 		
 		System.out.println(a1);
 		System.out.println(a3);
+		
+		Voto giusto = new Voto(18, "Geometria", LocalDate.now());
+		Voto sbagliato = new Voto(28, "Geometria", LocalDate.now());
+		Voto mancante = new Voto(30, "Merendine", LocalDate.now());
+		
+		System.out.format("Il voto %s e' %s\n", giusto.toString(), libr.esisteGiaVoto(giusto));
+		System.out.format("Il voto %s e' %s\n", sbagliato.toString(), libr.esisteGiaVoto(sbagliato));
+		System.out.format("Il voto %s e' %s\n", mancante.toString(), libr.esisteGiaVoto(mancante));
+		
 		
 	}
 

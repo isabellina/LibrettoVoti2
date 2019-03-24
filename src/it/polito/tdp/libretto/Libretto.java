@@ -46,12 +46,21 @@ public class Libretto {
 	}
 	
 	public Voto cercaEsame(String nomeEsame) {
-		for(Voto v: listaVoti) {
+	 /**	for(Voto v: listaVoti) {
 			if(v.getNomeCorso().equals(nomeEsame)) {  //meglio equals non mi serve un ordinamento naturale
 				return v;
-			}
+			}                            invece di scandirmi tutta la lista ci sono modi più semplici
 		}
-		return null;
+		return null;  **/
+		Voto voto = new Voto(0,nomeEsame,null);  //ho costruito un oggetto voto incompleto ma mi serve solo per la ricerca
+	    int pos =	this.listaVoti.indexOf(voto);
+	    if(pos==-1) {
+	    	return null;
+	    }
+	    else {
+	    	return this.listaVoti.get(pos);    // più o meno stesse riga ma abbiamo utilizzato interfacce senza andare a pescare a mano
+	    }
+		
 	}
 	
 	
@@ -59,7 +68,15 @@ public class Libretto {
 	// false se non l'ha trovato o l'ha trovato con un voto diverso
 	
 	public boolean esisteGiaVoto(Voto v) {   //per vedere se esiste un voto con uguale corso e stesso punteggio
-		        Voto trovato = this.cercaEsame(v.getNomeCorso())   ;    
+		 
+		int pos = this.listaVoti.indexOf(v);
+		if(pos == -1) {
+			return false;
+		}
+		else 
+			return (v.getPunti()== this.listaVoti.get(pos).getPunti());
+		
+		/**      Voto trovato = this.cercaEsame(v.getNomeCorso())   ;    
 		          if(trovato==null)  {
 		        	  return false;
 		          }
@@ -68,7 +85,7 @@ public class Libretto {
 		          }
 		          else {
 		        	  return false;
-		          }
+		          }  */
 	}
 	
 }
