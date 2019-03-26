@@ -27,8 +27,19 @@ public class Libretto {
 	//è una soluzione migliore perchè se un domani qualcuno decide di modificare la struttura interna della classe voto il metodo sotto non è
 	//da modificare quello sopra si
 	
-	public void add(Voto voto) {
+	
+	/**
+	 * ritorna true nel caso normale false se non è riuscito ad aggiungere il voto
+	 * @param voto
+	 */
+	
+	public boolean add(Voto voto) {
+		if(!this.esisteGiaVoto(voto) && !this.votoConflitto(voto)) {
 		listaVoti.add(voto);
+		return true;
+		}
+		else 
+			return false;
 	}
 	
 	
@@ -86,6 +97,25 @@ public class Libretto {
 		          else {
 		        	  return false;
 		          }  */
+	}
+	
+	
+	// mi dice se il voto v e' in conflitto con i voti precedenti
+	// se il voto non esiste non c'è conflitto
+	// se esiste e ha punteggio diverso c'è conflitto
+	// restituisce true se il voto esiste e ha punteggio diverso flase se non esiste ppure se esiste e ha lo stesso punteggio
+	
+	public boolean votoConflitto(Voto v) {
+		int pos = this.listaVoti.indexOf(v);
+		if(pos == -1) {
+			return false;
+		}
+		else 
+			return (v.getPunti()!= this.listaVoti.get(pos).getPunti());
+	}
+	
+	public String toString() {
+		return this.listaVoti.toString();
 	}
 	
 }
